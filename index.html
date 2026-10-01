@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="student-illustration">
+                <svg viewBox="0 0 180 180">
+                    <circle
+                        cx="90"
+                        cy="90"
+                        r="75"
+                        fill="#e8dcff"
+                    />
+                    <circle
+                        cx="90"
+                        cy="72"
+                        r="42"
+                        fill="#4b3548"
+                    />
+                    <circle
+                        cx="90"
+                        cy="82"
+                        r="32"
+                        fill="#ffd9c7"
+                    />
+                    <path
+                        d="M58 78 Q60 38 91 43 Q122 45 122 78 Q110 62 92 66 Q73 61 58 78"
+                        fill="#4b3548"
+                    />
+                    <circle
+                        cx="78"
+                        cy="82"
+                        r="3"
+                        fill="#333"
+                    />
+                    <circle
+                        cx="102"
+                        cy="82"
+                        r="3"
+                        fill="#333"
+                    />
+                    <path
+                        d="M82 94 Q90 100 98 94"
+                        stroke="#b65b70"
+                        stroke-width="3"
+                        fill="none"
+                    />
+                    <path
+                        d="M55 150 Q58 112 90 112 Q122 112 125 150"
+                        fill="#8d72e8"
+                    />
+                    <rect
+                        x="66"
+                        y="125"
+                        width="48"
+                        height="28"
+                        rx="3"
+                        fill="#dcecff"
+                    />
+                    <rect
+                        x="70"
+                        y="129"
+                        width="40"
+                        height="20"
+                        fill="#ffffff"
+                    />
+                    <path
+                        d="M58 154 L122 154 L130 160 L50 160 Z"
+                        fill="#9ca3af"
+                    />
+                </svg>
+            </div>
+            <h2>
+                EXPENSE<br>
+                TRACKER
+            </h2>
+
+        </div>
+
+
+        <div class="sidebar-decoration">
+            ✦
+        </div>
+
+
+        <nav>
+
+            <a class="active">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="#add-expense">
+                <span>＋</span>
+                Add Expense
+            </a>
+
+            <a href="#analytics">
+                <span>▥</span>
+                Analytics
+            </a>
+
+            <a href="#expenses">
+                <span>☷</span>
+                All Expenses
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-message">
+
+            <div class="books">
+                📚
+            </div>
+
+            <p>
+                Good Habits<br>
+                <b>Brighter Future</b> ✦
+            </p>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <div>
+
+                <h1>
+                    Student
+                    <span>Expense Tracker</span>
+                </h1>
+
+                <p>
+                    Track your daily spending easily 💗
+                </p>
+
+            </div>
+
+
+            <div class="header-right">
+
+                <div class="date-badge">
+                    📅
+                    <span id="todayDate">
+                        Today
+                    </span>
+                </div>
+
+                <div class="welcome">
+
+                    <div class="mini-avatar">
+                        👩🏻‍💻
+                    </div>
+
+                    <div>
+
+                        <b>Hello! 👋</b>
+
+                        <small>
+                            Let's save more 💗
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= SUMMARY CARDS ================= -->
+
+        <section class="summary-cards">
+
+
+            <div class="summary-card green-card">
+
+                <div class="summary-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <h3>
+                        Total Spent
+                    </h3>
+
+                    <p>
+                        ₹<span id="totalAmount">0</span>
+                    </p>
+
+                </div>
+
+                <span class="card-decoration">
+                    〰
+                </span>
+
+            </div>
+
+
+            <div class="summary-card pink-card">
+
+                <div class="summary-icon">
+                    🧾
+                </div>
+
+                <div>
+
+                    <h3>
+                        Total Expenses
+                    </h3>
+
+                    <p>
+                        <span id="expenseCount">0</span>
+                    </p>
+
+                </div>
+
+                <span class="card-decoration">
+                    〰
+                </span>
+
+            </div>
+
+
+            <div class="summary-card yellow-card">
+
+                <div class="summary-icon">
+                    🏆
+                </div>
+
+                <div>
+
+                    <h3>
+                        Highest Expense
+                    </h3>
+
+                    <p>
+                        ₹<span id="highestExpense">0</span>
+                    </p>
+
+                </div>
+
+                <span class="card-decoration">
+                    〰
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ================= MAIN GRID ================= -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- ADD EXPENSE -->
+
+            <div
+                class="panel add-panel"
+                id="add-expense"
+            >
+
+                <div class="panel-title">
+
+                    <h2>
+                        Add Expense
+                        <span>✦</span>
+                    </h2>
+
+                    <div class="note-illustration">
+                        📝
+                    </div>
+
+                </div>
+
+
+                <label for="expenseName">
+                    Expense Name
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span>🍴</span>
+
+                    <input
+                        type="text"
+                        id="expenseName"
+                        placeholder="e.g. Lunch"
+                    >
+
+                </div>
+
+
+                <label for="category">
+                    Category
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span>🍽️</span>
+
+                    <select id="category">
+
+                        <option value="Food">
+                            Food
+                        </option>
+
+                        <option value="Travel">
+                            Travel
+                        </option>
+
+                        <option value="Shopping">
+                            Shopping
+                        </option>
+
+                        <option value="Education">
+                            Education
+                        </option>
+
+                        <option value="Entertainment">
+                            Entertainment
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <label for="amount">
+                    Amount (₹)
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span class="rupee-icon">
+                        ₹
+                    </span>
+
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="e.g. 150"
+                    >
+
+                </div>
+
+
+                <label for="date">
+                    Date
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span>📅</span>
+
+                    <input
+                        type="date"
+                        id="date"
+                    >
+
+                </div>
+
+
+                <button
+                    class="add-button"
+                    onclick="addExpense()"
+                >
+
+                    ＋ Add Expense
+
+                </button>
+
+            </div>
+
+
+            <!-- MONTHLY ANALYSIS -->
+
+            <div
+                class="panel monthly-panel"
+                id="analytics"
+            >
+
+                <div class="panel-title">
+
+                    <h2>
+                        Monthly Analysis
+                        <span>✦</span>
+                    </h2>
+
+                    <span class="analytics-icon">
+                        📊
+                    </span>
+
+                </div>
+
+
+                <label for="monthFilter">
+                    Select Month
+                </label>
+
+
+                <div class="input-wrapper">
+
+                    <span>📅</span>
+
+                    <input
+                        type="month"
+                        id="monthFilter"
+                        onchange="filterByMonth()"
+                    >
+
+                </div>
+
+
+                <button
+                    class="show-all-button"
+                    onclick="showAllExpenses()"
+                >
+
+                    ↻ Show All Expenses
+
+                </button>
+
+
+                <div class="monthly-decoration">
+
+                    <span>✦</span>
+                    <span>〰</span>
+                    <span>✧</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHART -->
+
+            <div class="panel chart-panel">
+
+                <div class="panel-title">
+
+                    <h2>
+                        Spending by Category
+                        <span>✦</span>
+                    </h2>
+
+                    <span class="chart-icon">
+                        ◔
+                    </span>
+
+                </div>
+
+
+                <div class="chart-box">
+
+                    <canvas
+                        id="expenseChart"
+                    ></canvas>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ================= EXPENSE TABLE ================= -->
+
+        <section
+            class="panel expense-list"
+            id="expenses"
+        >
+
+            <div class="panel-title">
+
+                <h2>
+                    Recent Expenses
+                    <span>✦</span>
+                </h2>
+
+                <span class="list-icon">
+                    📋
+                </span>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Expense
+                            </th>
+
+                            <th>
+                                Category
+                            </th>
+
+                            <th>
+                                Amount
+                            </th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="expenseTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            Made with 💗 for better money habits
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- CHART.JS -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js">
+    </script>
+
+
+    <!-- YOUR JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+
+    <!-- TODAY'S DATE -->
+
+    <script>
+
+        const dateElement =
+            document.getElementById("todayDate");
+        const today =
+            new Date();
+        dateElement.innerText =
+            today.toLocaleDateString(
+                "en-IN",
+                {
+                    day: "2-digit",
+                    month: "long",
+                    year: "numeric"
+                }
+            );
+    </script>
+</body>
+</html>
